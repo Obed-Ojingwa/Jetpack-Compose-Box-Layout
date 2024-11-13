@@ -6,10 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -33,48 +35,117 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-            // This is for Row, remove this and add the Column for column, also enusre that you modify the attributes of the Row to match the Column
-            Row (
-                modifier = Modifier
-                .background(color = Color.Green)
-                .fillMaxSize(),
-
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.Bottom,
-
-
-
-
-            ){
-                Greeting("Hello")
-                Greeting("Android")
-                Greeting("Jetpack")
-            }
+            BoxExample2()
         }
     }
 }
 
-
-
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = name,
-        fontSize = 32.sp,
-        textAlign = TextAlign.Center,
-        fontWeight = FontWeight.Bold,
-        modifier = modifier
-            .background(color = Color.LightGray)
-            .border(2.dp, color = Color.Green)
-            .padding(10.dp)
-    )
+fun BoxExample(){
+    Box(modifier = Modifier
+        .background(color = Color.Green)
+        .size(180.dp, 300.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .size(125.dp, 100.dp)
+                .align(Alignment.TopEnd)
+        ) {
+            Text(
+                text = "Hi",
+                style = MaterialTheme.typography.bodySmall,
+                modifier = Modifier
+                    .background(color = Color.White)
+                    .size(90.dp, 50.dp)
+                    .align(Alignment.BottomCenter)
+            )
+        }
+
+    }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    MyJetpackComposeTheme {
-        Greeting("Android")
+fun BoxExample2() {
+
+    Box (
+        modifier = Modifier
+            .background(color = Color.LightGray)
+            .fillMaxSize()
+
+    ){
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.TopStart),
+            text = "TopStart"
+        )
+
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.TopCenter),
+            text = "TopCenter"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.TopEnd),
+            text = "TopEnd"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.CenterStart),
+            text = "CenterStart"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.Center),
+            text = "Center"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.CenterEnd),
+            text = "CenterEnd"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.BottomStart),
+            text = "BottomStart"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.BottomCenter),
+            text = "BottomCenter"
+        )
+        Text(
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier
+                .background(color = Color.Yellow)
+                .padding(10.dp)
+                .align(Alignment.BottomEnd),
+            text = "BottomEnd"
+        )
     }
 }
